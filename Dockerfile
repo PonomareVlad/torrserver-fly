@@ -1,0 +1,1 @@
+FROM yourok/torrserver:latest
