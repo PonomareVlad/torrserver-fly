@@ -1,19 +1,29 @@
-app = "torrserver"
-primary_region = "otp"
-kill_signal = "SIGINT"
-kill_timeout = "5s"
+# fly.toml app configuration file generated for torrserver on 2024-07-21T00:20:10+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-[env]
-  TS_PORT = "8090"
+app = 'torrserver'
+primary_region = 'otp'
+kill_signal = 'SIGINT'
+kill_timeout = '5s'
 
-[[services]]
-  processes = ["app"]
-  internal_port = 8090
-  auto_stop_machines = false
-  auto_start_machines = false
-
-  [[services.ports]]
-    port = 8090
+[build]
 
 [deploy]
-  strategy = "immediate"
+  strategy = 'immediate'
+
+[env]
+  TS_PORT = '8090'
+
+[http_service]
+  internal_port = 8090
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = false
+  min_machines_running = 1
+  max_machines_running = 1
+  processes = ['app']
+
+[[vm]]
+  size = 'shared-cpu-1x'
