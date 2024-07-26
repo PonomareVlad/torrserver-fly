@@ -14,10 +14,10 @@ kill_timeout = '5s'
   strategy = 'immediate'
 
 [env]
-  TS_PORT = '80'
+  TS_PORT = '5665'
 
 [http_service]
-  internal_port = 80
+  internal_port = 5665
   force_https = true
   auto_stop_machines = false
   auto_start_machines = false
