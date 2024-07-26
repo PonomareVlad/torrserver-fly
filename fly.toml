@@ -15,10 +15,10 @@ kill_timeout = '5s'
 
 [env]
   TS_PORT = '8090'
+  TS_DONTKILL = '1'
 
 [http_service]
   internal_port = 8090
-  force_https = true
   auto_stop_machines = false
   auto_start_machines = false
   min_machines_running = 1
